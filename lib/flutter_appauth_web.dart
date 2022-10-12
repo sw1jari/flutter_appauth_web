@@ -107,9 +107,9 @@ class AppAuthWebPlugin extends FlutterAppAuthPlatform {
       } else {
         html.window.sessionStorage[_AUTHORIZE_DESTINATION_URL] = html.window.location.href;
         html.window.sessionStorage[_CODE_VERIFIER_STORAGE] = codeVerifier;
-        html.window.location.assign(authUri);
-        return null;
-        // loginResult = await openPopUp(authUri, 'auth', 640, 600, true);
+//         html.window.location.assign(authUri);
+//         return null;
+        loginResult = await openPopUp(authUri, 'auth', 640, 600, true);
       }
     } on StateError catch (err) {
       throw StateError(_AUTHORIZE_ERROR_MESSAGE_FORMAT.replaceAll("%1", _AUTHORIZE_AND_EXCHANGE_CODE_ERROR_CODE).replaceAll("%2", err.message));
